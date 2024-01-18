@@ -77,7 +77,7 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateNewsRequest $request, News $news)
+    public function update(UpdateNewsRequest $request, Shop $shop, News $news)
     {
         $news->update([
             'title' => $request->validated()['title'],
@@ -86,7 +86,7 @@ class NewsController extends Controller
 
         $request->session()->flash('flash.banner', __('crud-messages.update'));
 
-        return redirect()->route('shops.news.index', [1]);
+        return redirect()->route('shops.news.index', [$shop->id]);
     }
 
     /**

@@ -14,7 +14,7 @@ import { parseISO, format } from 'date-fns'
                     <p class="text-gray-500 text-sm mb-2">
                         {{ format(parseISO(article.created_at), 'yyyy-MM-dd HH:mm') }} | {{ article.shop.title }}
                     </p>
-                    <Link :href="route('shops.news.edit', {shop: 1, news:article.id})" class="text-2xl inline-block font-bold mb-2 transition hover:text-red-600">
+                    <Link :href="route('shops.news.edit', {shop: shop, news:article.id})" class="text-2xl inline-block font-bold mb-2 transition hover:text-red-600">
                         {{ article.title }}
                     </Link>
                 </div>
@@ -23,7 +23,7 @@ import { parseISO, format } from 'date-fns'
         </div>
         <div class="w-16 ml-auto shrink-0">
             <div class="hidden group-hover:flex items-center justify-end h-full">
-                <Link :href="route('shops.news.edit', {shop: 1, news:article.id})" class="text-red-600 transition hover:text-red-800 mr-3">Edit</Link>
+                <Link :href="route('shops.news.edit', {shop: shop, news:article.id})" class="text-red-600 transition hover:text-red-800 mr-3">Edit</Link>
                 <form @submit.prevent="submitForm(article.id)" style="display: inline;">
                     <button type="submit" onclick="return confirm('Are you sure you want to delete this news article?')" class="text-red-600 transition hover:text-red-800">
                         Trash
@@ -42,6 +42,10 @@ export default {
             required: true,
             type: Object,
         },
+        shop: {
+            type: Number,
+            required: true,
+        }
     },
     methods: {
         async submitForm(id) {

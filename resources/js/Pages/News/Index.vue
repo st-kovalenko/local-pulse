@@ -35,7 +35,7 @@ import { Link } from '@inertiajs/vue3';
             <div v-if="news.length > 0" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div v-for="article in news" class="group p-6 lg:p-8 bg-white border-b border-gray-200">
-                        <NewsArticle :article="article"></NewsArticle>
+                        <NewsArticle :article="article" :shop="shop"></NewsArticle>
                     </div>
                 </div>
             </div>
