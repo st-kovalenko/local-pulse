@@ -51,6 +51,41 @@ const logout = () => {
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
+
+                                <div class="inline-flex items-center py-3 text-gray-400 hover:text-gray-900 focus:text-gray-900 focus:border-gray-300 transition duration-150 ease-in-out !ml-4">
+                                    <Dropdown align="center" width="60">
+                                        <template #trigger>
+                                            <span class="inline-flex rounded-md">
+                                                <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md bg-white focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150 whitespace-nowrap">
+                                                    <i class="fa-solid fa-file-contract mr-1 xl:mr-2"></i>Shops
+
+                                                    <svg class="ml-1 xl:ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                        </template>
+
+                                        <template #content>
+                                            <DropdownLink :href="route('shops.news.index', 1)" :active="route().current('shops.news.index')">
+                                                Nord
+                                            </DropdownLink>
+                                            <DropdownLink :href="route('shops.news.index', 2)" :active="route().current('shops.news.index')">
+                                                Süd
+                                            </DropdownLink>
+                                            <DropdownLink :href="route('shops.news.index', 3)" :active="route().current('shops.news.index')">
+                                                Ost
+                                            </DropdownLink>
+                                            <DropdownLink :href="route('shops.news.index', 4)" :active="route().current('shops.news.index')">
+                                                West
+                                            </DropdownLink>
+                                            <DropdownLink :href="route('shops.news.index', 5)" :active="route().current('shops.news.index')">
+                                                Mitte
+                                            </DropdownLink>
+                                        </template>
+                                    </Dropdown>
+                                </div>
+
                             </div>
                         </div>
 

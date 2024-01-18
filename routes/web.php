@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -32,4 +34,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::middleware([HandlePrecognitiveRequests::class])->group(function () {
+        Route::resource('shops.news', NewsController::class);
+    });
 });
