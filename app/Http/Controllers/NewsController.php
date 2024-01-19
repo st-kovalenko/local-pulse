@@ -48,7 +48,7 @@ class NewsController extends Controller
             'shop_id' => $shop->id,
         ]);
 
-        $request->session()->flash('flash.banner', __('crud-messages.store'));
+        $request->session()->flash('flash.banner', 'Stored');
 
         return redirect()->route('shops.news.index', [$shop->id]);
     }
@@ -84,7 +84,7 @@ class NewsController extends Controller
             'body' => $request->validated()['body'],
         ]);
 
-        $request->session()->flash('flash.banner', __('crud-messages.update'));
+        $request->session()->flash('flash.banner', 'Updated');
 
         return redirect()->route('shops.news.index', [$shop->id]);
     }
@@ -98,7 +98,7 @@ class NewsController extends Controller
 
         $news->delete();
 
-        $request->session()->flash('flash.banner', __('crud-messages.delete'));
+        $request->session()->flash('flash.banner', 'Deleted');
 
         return redirect()->route('shops.news.index', [$shop->id]);
     }

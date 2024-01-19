@@ -8,7 +8,7 @@ import { parseISO, format } from 'date-fns'
         <div class="px-4 grow-0">
             <div class="flex flex-row">
                 <div :style="{ 'border-color': '#6e2b2b' }" class="relative inline-flex items-center justify-center w-16 h-16 min-w-[4rem] min-h-[4rem] overflow-hidden rounded-full border-4 border-[#9B2323FF] bg-gray-100">
-                    <span class="font-medium text-2xl text-gray-600">S</span>
+                    <span class="font-medium text-2xl text-gray-600">{{ article.shop.title.charAt(0) }}</span>
                 </div>
                 <div class="ml-4">
                     <p class="text-gray-500 text-sm mb-2">
@@ -23,10 +23,12 @@ import { parseISO, format } from 'date-fns'
         </div>
         <div class="w-16 ml-auto shrink-0">
             <div class="hidden group-hover:flex items-center justify-end h-full">
-                <Link :href="route('shops.news.edit', {shop: shop, news:article.id})" class="text-red-600 transition hover:text-red-800 mr-3">Edit</Link>
+                <Link :href="route('shops.news.edit', {shop: shop, news:article.id})" class="text-red-600 transition hover:text-red-800 mr-3">
+                    <font-awesome-icon icon="fa-solid fa-edit" />
+                </Link>
                 <form @submit.prevent="submitForm(article.id)" style="display: inline;">
                     <button type="submit" onclick="return confirm('Are you sure you want to delete this news article?')" class="text-red-600 transition hover:text-red-800">
-                        Trash
+                        <font-awesome-icon icon="fa-solid fa-trash" />
                     </button>
                 </form>
             </div>
@@ -49,7 +51,7 @@ export default {
     },
     methods: {
         async submitForm(id) {
-            await this.$inertia.delete(route('shops.news.destroy', {shop: 1, news:id}));
+            await this.$inertia.delete(route('shops.news.destroy', {shop: this.shop, news:id}));
         },
     },
 }

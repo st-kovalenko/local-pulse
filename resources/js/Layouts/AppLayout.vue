@@ -51,7 +51,6 @@ const logout = () => {
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
-
                                 <div class="inline-flex items-center py-3 text-gray-400 hover:text-gray-900 focus:text-gray-900 focus:border-gray-300 transition duration-150 ease-in-out !ml-4">
                                     <Dropdown align="center" width="60">
                                         <template #trigger>
@@ -65,27 +64,13 @@ const logout = () => {
                                                 </button>
                                             </span>
                                         </template>
-
                                         <template #content>
-                                            <DropdownLink :href="route('shops.news.index', 1)" :active="route().current('shops.news.index')">
-                                                Nord
-                                            </DropdownLink>
-                                            <DropdownLink :href="route('shops.news.index', 2)" :active="route().current('shops.news.index')">
-                                                Süd
-                                            </DropdownLink>
-                                            <DropdownLink :href="route('shops.news.index', 3)" :active="route().current('shops.news.index')">
-                                                Ost
-                                            </DropdownLink>
-                                            <DropdownLink :href="route('shops.news.index', 4)" :active="route().current('shops.news.index')">
-                                                West
-                                            </DropdownLink>
-                                            <DropdownLink :href="route('shops.news.index', 5)" :active="route().current('shops.news.index')">
-                                                Mitte
+                                            <DropdownLink v-for="shop in $page.props.shops" :href="route('shops.news.index', shop.id)" :active="route().current('shops.news.index')">
+                                                {{ shop.title }}
                                             </DropdownLink>
                                         </template>
                                     </Dropdown>
                                 </div>
-
                             </div>
                         </div>
 

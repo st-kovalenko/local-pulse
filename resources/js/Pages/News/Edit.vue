@@ -29,7 +29,7 @@
                                         <label for="body" class="block font-medium text-sm text-gray-700">
                                             <span>Body</span>
                                         </label>
-                                        <textarea v-model="form.body" @change="form.validate('body')" id="body" rows="4" class="border-gray-300 focus:border-gold-300 focus:ring-gold-300 rounded-md shadow-sm mt-1 block w-full" :placeholder="'placeholder'"></textarea>
+                                        <textarea v-model="form.body" @change="form.validate('body')" id="body" rows="4" class="border-gray-300 focus:border-gold-300 focus:ring-gold-300 rounded-md shadow-sm mt-1 block w-full"></textarea>
                                         <div v-if="form.invalid('body')" class="mt-2">
                                             <p class="text-sm text-red-600">{{ form.errors.body }}</p>
                                         </div>

@@ -7,13 +7,13 @@ import { Link } from '@inertiajs/vue3';
     <AppLayout title="News">
         <template #header>
             <div class="flex items-center justify-between">
-                <h2 class="font-semibold text-xl text-white leading-tight mr-2">
+                <h2 class="font-semibold text-xl leading-tight mr-2">
                     News
                 </h2>
                 <div class="flex items-center space-x-4">
                     <Link v-if="count < 3" :href="route('shops.news.create', shop)" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-2 focus:outline-none focus:ring-red-200">
                         <span class="inline-flex items-center justify-center w-4 h-4 mr-2 text-xs font-semibold text-red-600 bg-red-100 rounded">
-                            <i class="fa-solid fa-plus"></i>
+                            <font-awesome-icon icon="fa-solid fa-plus" />
                         </span>
                         Create
                     </Link>
@@ -26,7 +26,7 @@ import { Link } from '@inertiajs/vue3';
                 <p class="text-xl mb-4">No News Found</p>
                 <Link v-if="count < 3" :href="route('shops.news.create', {shop: shop})" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-200">
                     <span class="inline-flex items-center justify-center w-4 h-4 mr-2 text-xs font-semibold text-red-600 bg-red-100 rounded">
-                        <i class="fa-solid fa-plus"></i>
+                        <font-awesome-icon icon="fa-solid fa-plus" />
                     </span> Create
                 </Link>
             </div>
